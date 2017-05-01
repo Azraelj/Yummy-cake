@@ -42,10 +42,6 @@
 
 }
 
-
-/*.count,.total{
-	width: 15%;
-}*/
 .cart_img{
 	width: 33%;
     float: left;
@@ -53,6 +49,7 @@
 }  
 .cart_img img{
 	max-width: 100%;
+	height: 221px;
 }
 .item_main{
 	padding-left: 50px;
@@ -68,7 +65,7 @@
 }
 .info h3 span{
 	display: block;
-    font-size: 1.2em;
+    font-size: 1em;
     margin: 0.7em 0;
 }
 .count input{
@@ -112,4 +109,4 @@
 }
 .to_order span{
 	color: #F07818;
-};
+}

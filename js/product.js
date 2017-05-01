@@ -18,6 +18,7 @@ $(function(){
             success(data){
                 var page='';
                 var products=data.data;
+                console.log(products)
                 var pageNo=data.page;
                 pro_list(products);
                 page+=`<li><a href="#plist">上一页</a></li>`
@@ -45,17 +46,50 @@ $(function(){
 					</div>
 					<div class="pro_info">
 						<h4>${products[i].pname}</h4>
-						<p id="price_dis">￥${products[i].price*(100-products[i].discount)/100}</p>
+						<p id="price_dis">￥${parseInt(products[i].price*(100-products[i].discount)/100)}/磅</p>
 						<div class="off">
 							<del>￥${products[i].price}</del>
 							<span id="discount">[${products[i].discount}% Off]</span>
 						</div>
-						<input type="text" name="" value=1>
-						<input type="button" name="" value="Add">
+						<input type="text" name="count" value=1 id="count">
+						<input type="button"  value="Add" class="add">
 					</div>
 				</li>`;
 		});
-        $('.pro_list').html(list);
+        $(".pro_list").html(list);
+        //添加到购物车
+        $(".add").click(function(){
+            if(!sessionStorage['isLogin']){
+                $("#login").click();
+            }else{
+                var pro={};
+                var i=$(".add").index($(this));
+                var weight=products[i].weight.split(",")[0];
+                pro.pid=products[i].pid;
+                pro.weight=weight;
+                pro.count=$(this).prev().val();
+                $.ajax({
+                    type:"get",
+                    url:"data/cart_add.php",
+                    data:pro,
+                    success(data){
+                        if(data.code){
+                            $("#cart_msg").html("商品添加成功！");
+                            $(".cart_add").show();
+                            $("#shop").click(function(){
+                                location.href="product.html";
+                            });
+                            $("#to_cart").click(function(){
+                                location.href="cart.html";
+                            });
+                        }else{
+                            $("#cart_msg").html("商品添加失败！");
+                            $(".cart_add").show();
+                        }
+                    }
+                });
+            }
+        })
     }
 	function pageChange(){
     	var data={};
@@ -90,6 +124,7 @@ $(function(){
             data:data,
             success:function(data){
                 var products=data.data;
+
                 pro_list(products);
                 if($this.is(".page_tabs a:first")){
                 	if($as.index($active)!=1){
@@ -104,7 +139,9 @@ $(function(){
                         $this.addClass('active').parent().siblings().children().removeClass('active');
 					}
 				}
+
             }.bind(this)
+
         })
 	}
 	//检索
@@ -153,6 +190,7 @@ $(function(){
             }
         })
     }
+
 
 });
 

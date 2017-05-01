@@ -409,3 +409,71 @@ i.close{
 .show{
 	opacity: 1 !important;
 }
+/*评分*/
+.sc5 span:first-child:before,.sc5 span:first-child ~ span:before{
+	content: "\2605";
+	position: absolute;
+	left: 0;
+	color: #F07818;
+}
+.sc4 span:nth-child(2):before,.sc4 span:nth-child(2) ~ span:before{
+	content: "\2605";
+	position: absolute;
+	left: 0;
+	color: #F07818;
+}
+.sc3 span:nth-child(3):before,.sc3 span:nth-child(3) ~ span:before{
+	content: "\2605";
+	position: absolute;
+	left: 0;
+	color: #F07818;
+}
+.sc2 span:nth-child(4):before,.sc2 span:nth-child(4) ~ span:before{
+	content: "\2605";
+	position: absolute;
+	left: 0;
+	color: #F07818;
+}
+.sc1 span:last-child:before,.sc1 span:last-child ~ span:before{
+	content: "\2605";
+	position: absolute;
+	left: 0;
+	color: #F07818;
+}
+/*添加购物车*/
+.cart_add{
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	width: 500px;
+	height: 200px;
+	background-color: #fff;
+	color: #F07818;
+	text-align: center;
+	font-size: 2em;
+	border: 1px solid #5D4B33;
+	z-index:2;
+	display: none;
+}
+.cart_msg{
+	height: 120px;
+	line-height: 120px;
+}
+.cart_add button{
+	height: 30px;
+	line-height: 30px;
+	outline: none;
+	background-color: #F07818;
+	color: #fff;
+	padding: 0 15px;
+	border: none;
+	cursor: pointer;
+}
+.cart_add .continue{
+	border: 1px solid #F07818;
+	color: #F07818;
+	background-color: #fff;
+}

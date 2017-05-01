@@ -49,6 +49,15 @@ $(function(){
 		$(".header_right>li:first").hover(function(){
 			$(".search").toggleClass("open");
 		});
+		//购物车
+		$("#cart").click(function(e){
+			e.preventDefault();
+            if(!sessionStorage['isLogin']){
+                $("#login").click();
+            }else{
+            	location.href="cart.html";
+			}
+		});
 		//登录框
 		if(sessionStorage['isLogin']!=1){
             $(".welcome").html("");

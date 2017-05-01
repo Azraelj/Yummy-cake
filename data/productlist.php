@@ -14,7 +14,7 @@
         $count=ceil($row[0]/9);
     }
     $output['page']=$count;
-    $sql="SELECT pname,pid,price,rating,isIndex,discount,img_l FROM t_product LIMIT $start,9";
+    $sql="SELECT pname,pid,price,rating,isIndex,discount,img_l,weight FROM t_product LIMIT $start,9";
     $result=mysqli_query($conn,$sql);
     $rows=mysqli_fetch_all($result,MYSQLI_ASSOC);
     $output['data']=$rows;

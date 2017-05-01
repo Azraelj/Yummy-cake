@@ -33,8 +33,10 @@
 /*信息区*/
 .single_msg{
 	width: 820px;
+    height: 583px;
 	float: left;
 	padding: 0 3em;
+    overflow: hidden;
 }
 .single_msg h3{
 	font-size: 2em;
@@ -47,6 +49,9 @@
 	font-size: 1.2em;
     line-height: 1.8em;
     color: #999;
+}
+.pro_md{
+    margin-bottom: 20px;
 }
 .size{
 	margin-top: 2em;
@@ -62,12 +67,19 @@
 	display: inline-block;
 	margin-right: 10px;
 }
-.size li a{
+.size li label{
 	color: #999;
-    font-size: 1em;
+    font-size: 1.2em;
     background: #fff;
-    padding: 5px 0;
+    padding: 5px 10px;
 }
+.size input{
+    display: none;
+}
+.size input:checked + label{
+    color: #F07818 !important;
+    border: 1px solid #F07818;
+ }
 .galry{
 	margin-top: 2em;
 }
@@ -96,7 +108,7 @@ p.qty{
 .btn_form a{
 	outline: none;
     display: inline-block;
-    font-size: 0.9em;
+    font-size: 1em;
     padding: 0.5em 1em;
     border: 2px solid #F07818;
     background: #F07818;
@@ -254,4 +266,12 @@ p.disc {
     position: absolute;
     left: 0;
     color: #F07818;
+}
+.bigImg img{
+    width: 348px;
+    height: 448px;
+}
+.thumbnail img{
+    width: 112px;
+    height: 126px;
 }
